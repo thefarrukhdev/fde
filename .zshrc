@@ -57,7 +57,7 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 # Terminal ochilganda Arch logotipi bilan tizim ma'lumotlarini chiqarish
-fastfetch
+# fastfetch # commented out for cleaner terminal startup
 
 # =============================================================================
 # TUI Qurollari (Professional Workflow)

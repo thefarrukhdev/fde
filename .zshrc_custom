@@ -1,0 +1,132 @@
+# Restore Antigravity & local bin path
+export PATH="/home/farrukh/.local/bin:$PATH"
+
+# NVM Lazy Initialization (Zero-delay startup)
+export NVM_DIR="$HOME/.nvm"
+nvm() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm "$@"; }
+node() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; node "$@"; }
+npm() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npm "$@"; }
+npx() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"; }
+
+# Bun initialization
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Cargo / Rust initialization
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# Railway initialization
+[ -f "$HOME/.railway/env" ] && source "$HOME/.railway/env"
+
+# Go initialization
+export PATH="$PATH:/usr/local/go/bin:$HOME/.go/bin"
+
+# Zoxide (Smart CD)
+# eval "$(zoxide init zsh)"
+
+# Useful Aliases
+alias bashrc='nvim ~/.bashrc'
+alias zshrc='nvim ~/.zshrc'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gpd='git push origin develop'
+alias gl='git log --oneline --graph'
+alias gd='git diff'
+alias gch='git checkout'
+alias gb='git branch'
+alias gcl='git clone'
+alias nrd='npm run dev'
+alias g='git'
+alias gsch='git switch'
+alias grmv='git remote -v'
+alias gcc='gcc -Wall -Wextra -Werror'
+alias cf='clang-format -i *.c'
+alias vg='valgrind --leak-check=full --track-origins=yes *.c'
+alias cls='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ll='eza -la --icons'
+alias h='history'
+alias grep='grep --color=auto'
+alias mkdir='mkdir -pv'
+alias l='eza -l --icons'
+alias la='eza -a --icons'
+alias ls='eza --icons'
+alias cat='bat --style=plain'
+alias mk='make -j$(nproc)'
+alias path='echo -e ${PATH//:/\\n}'
+alias reboot-safe='sudo reboot -f'
+alias poweroff-safe='sudo poweroff -f'
+alias kiro='kiro-cli chat --trust-all-tools'
+alias anydesk='nohup env XDG_SESSION_TYPE=x11 /home/farrukh/anydesk/anydesk >/dev/null 2>&1 & disown'
+alias chats="agy-sessions"
+alias fans="python3 ~/.opencode/bin/asus_panel.py"
+
+export GOPATH="$HOME/.go"
+
+# Agy CLI Theme
+export GLAMOUR_STYLE="dracula"
+
+# =============================================================================
+# SENIOR PROFESSIONAL ALIASES (Added by AGY)
+# Existing aliases were strictly preserved. These are non-conflicting additions.
+# =============================================================================
+
+# Fastfetch (Run manually when you want to show off)
+alias ff='fastfetch'
+alias sys='fastfetch'
+
+# Git - Advanced
+alias gpl='git pull origin $(git branch --show-current)'
+alias gpsup='git push --set-upstream origin $(git branch --show-current)'
+alias gcmsg='git commit -m'
+alias gcam='git commit -a -m'
+alias gcb='git checkout -b'
+alias gca='git commit --amend'
+alias gca!='git commit --amend --no-edit'
+alias gst='git status -sb'
+alias gsta='git stash push'
+alias gstp='git stash pop'
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
+
+# Docker
+alias d='docker'
+alias dco='docker-compose'
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias di='docker images'
+alias dx='docker exec -it'
+alias dlog='docker logs -f'
+alias dstopall='docker stop $(docker ps -a -q)'
+alias drmall='docker rm $(docker ps -a -q)'
+
+# NPM / Bun / Node
+alias nr='npm run'
+alias ns='npm start'
+alias nt='npm test'
+alias ni='npm install'
+alias nd='npm run dev'
+alias nb='npm run build'
+alias nrb='npm run build'
+
+# System & Pacman
+alias update-all='sudo pacman -Syu && yay -Syu'
+alias pacclean='sudo pacman -Sc && yay -Sc'
+alias ports='sudo ss -tulanp'
+alias disk='df -h | grep -v loop'
+alias mem='free -m -h'
+alias cpu='htop'
+
+# Directory navigation
+alias -- -='cd -'
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+
+# Quick Edit
+alias v='nvim'
+alias code.='code .'
+
