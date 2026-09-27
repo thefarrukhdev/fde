@@ -58,7 +58,7 @@ hl.window_rule({
 })
 
 -- 4. Waypaper & Settings
-local settings_apps = { "waypaper", "com.ml4w.dotfilessettings" }
+local settings_apps = { "waypaper", "blueman-manager", "nm-connection-editor" }
 for _, cls in ipairs(settings_apps) do
     hl.window_rule({
         match = { class = cls },

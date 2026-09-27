@@ -84,9 +84,9 @@
   // Cliphist
   "custom/cliphist": {
     "format": "",
-    "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist",
-    "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist d",
-    "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/ml4w-cliphist w",
+    "on-click": "sleep 0.1 && ~/.config/hypr/scripts/clipboard_manager.sh",
+    "on-click-right": "sleep 0.1 && ~/.config/hypr/scripts/clipboard_manager.sh",
+    "on-click-middle": "sleep 0.1 && ~/.config/hypr/scripts/clipboard_manager.sh",
     "tooltip-format": "Left: Open clipboard Manager\nRight: Delete an entry\nMiddle: Clear list",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
@@ -116,7 +116,7 @@
   // Settings
   "custom/settings": {
     "format": "",
-    "on-click": "sleep 0.1 && com.ml4w.dotfilessettings",
+    "on-click": "sleep 0.1 && kitty -e nvim ~/.config/hypr/hyprland.conf",
     "tooltip-format": "ML4W Settings"
   },
   // Keybindings
@@ -176,7 +176,7 @@
   "custom/hyprshade": {
     "format": "",
     "tooltip-format": "Toggle Screen Shader",
-    "on-click": "sleep 0.5; ~/.config/ml4w/scripts/ml4w-toggle-hyprsunset",
+    "on-click": "sleep 0.5; hyprshade toggle blue-light-filter",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
@@ -234,14 +234,14 @@
   // CPU
   "cpu": {
     "format": "/ C {usage}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-click": "kitty -e btop",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
   // Memory
   "memory": {
     "format": "/ M {}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-click": "kitty -e btop",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
@@ -250,7 +250,7 @@
     "interval": 30,
     "format": "D {percentage_used}% ",
     "path": "/",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh",
+    "on-click": "kitty -e btop",
     "on-scroll-up": "true",
     "on-scroll-down": "true"
   },
@@ -324,8 +324,8 @@
     "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "~/.config/ml4w/scripts/rofi-wifi-menu.sh",
-    "on-click-right": "~/.config/ml4w/scripts/ml4w-toggle-nmapplet toggle"
+    "on-click": "nm-connection-editor",
+    "on-click-right": "nm-connection-editor"
   },
   // Battery
   "battery": {
@@ -393,7 +393,7 @@
   "format-disabled": "",
   "format-off": "",
   "interval": 30,
-  "on-click": "sleep 0.1 && ~/.config/ml4w/settings/bluetooth.sh",
+  "on-click": "sleep 0.1 && blueman-manager",
   "tooltip-format-connected": "Connected devices: {num_connections} connected\n\n{device_enumerate}",
   "tooltip-format-enumerate-connected": "{device_alias}",
   "tooltip-format-enumerate-connected-battery": "{device_alias}\t| Battery life: {device_battery_percentage}%",
