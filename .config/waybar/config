@@ -64,19 +64,21 @@
     "interval": 2,
     "format": " {usage}%",
     "tooltip": true,
+    "tooltip-format": "  Protsessor (CPU)\n───────────────────────\n• Yuklama:       {usage}%\n• Chastota:      {avg_frequency} GHz",
     "on-click": "gnome-system-monitor || kitty -e btop"
   },
 
   "memory": {
     "interval": 2,
     "format": " {percentage}%",
-    "tooltip-format": "Used: {used:0.1f}GB / Total: {total:0.1f}GB",
+    "tooltip-format": "  Tezkor Xotira (RAM)\n───────────────────────\n• Band xotira:   {used:0.1f} GB\n• Jami hajm:     {total:0.1f} GB\n• Bandlik:       {percentage}%",
     "on-click": "gnome-system-monitor || kitty -e btop"
   },
 
   "mpris": {
     "format": " {status_icon} {dynamic}",
     "format-paused": " {status_icon} <i>{dynamic}</i>",
+    "tooltip-format": "  Musiqa Pleyeri\n───────────────────────\n• Ijrochi:  {artist}\n• Nomi:     {title}\n• Albom:    {album}",
     "status-icons": {
       "playing": "▶",
       "paused": "⏸"
@@ -114,15 +116,17 @@
     "format": " {}",
     "format-en": "EN",
     "format-ru": "RU",
-    "format-uz": "UZ"
+    "format-uz": "UZ",
+    "tooltip-format": "  Klaviatura Tili\n───────────────────────\n• Joriy tartib:  {}"
   },
 
   "bluetooth": {
     "format": "",
     "format-connected": " {num_connections}",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format": "  Bluetooth\n───────────────────────\n• Qurilma:  {controller_alias}\n• Manzil:   {controller_address}",
+    "tooltip-format-connected": "  Bluetooth ({num_connections} ta)\n───────────────────────\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "• {device_alias}\t({device_address})",
+    "tooltip-format-enumerate-connected-battery": "• {device_alias}\t󰥉 {device_battery_percentage}%",
     "on-click": "blueman-manager"
   },
 
@@ -131,15 +135,17 @@
     "format-ethernet": "󰈀 {ipaddr} ⬇ {bandwidthDownBytes}",
     "format-disconnected": "󰤭 ",
     "interval": 2,
-    "tooltip-format-wifi": "📶 {essid}\n📡 Signal: {signalStrength}%\n🌐 IP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "🔌 {ifname}\n🌐 IP: {ipaddr}\n⬇ Download: {bandwidthDownBytes}\n⬆ Upload: {bandwidthUpBytes}",
-    "tooltip-format-disconnected": "❌ No connection",
+    "tooltip-format-wifi": "󰤨  {essid}\n───────────────────────\n• Signal:       {signalStrength}%\n• IP manzil:    {ipaddr}\n• Yuklash (⬇):  {bandwidthDownBytes}\n• Jo'natish (⬆): {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰈀  {ifname}\n───────────────────────\n• IP manzil:    {ipaddr}\n• Yuklash (⬇):  {bandwidthDownBytes}\n• Jo'natish (⬆): {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "󰤭  Tarmoqqa ulanmagan",
     "on-click": "networkmanager_dmenu"
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
+    "tooltip-format": "{icon}  Ovoz Boshqaruvi\n───────────────────────\n• Balandlik:    {volume}%\n• Chiqish:      {desc}",
+    "tooltip-format-muted": "󰝟  Ovoz O'chirilgan\n───────────────────────\n• Chiqish:      {desc}",
     "format-icons": {
       "default": ["󰕿", "󰖀", "󰕾"]
     },
@@ -151,6 +157,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
+    "tooltip-format": "{icon}  Ekran Yorug'ligi\n───────────────────────\n• Daraja:       {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
@@ -164,6 +171,9 @@
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
     "format-plugged": "󰂄 {capacity}%",
+    "tooltip-format": "{icon}  Batareya\n───────────────────────\n• Zaryad:       {capacity}%\n• Qolgan vaqt:  {time}",
+    "tooltip-format-charging": "󰂄  Quvvatlanmoqda\n───────────────────────\n• Zaryad:       {capacity}%\n• To'lish vaqti: {time}",
+    "tooltip-format-plugged": "󰚥  Tarmoqqa Ulangan\n───────────────────────\n• Zaryad:       {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
   },
 
