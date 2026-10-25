@@ -77,3 +77,34 @@ alias f="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 [ -f ~/.zshrc_custom ] && source ~/.zshrc_custom
 export PATH="$HOME/.local/bin:$PATH"
 [ -f ~/.zshrc_secrets ] && source ~/.zshrc_secrets
+
+# Antigravity Toolkit: Auto API Key Switcher
+agy-rotate() {
+    if [ "$1" = "--add" ]; then
+        python3 ~/.local/bin/agy-rotate-helper.py --add
+        return
+    fi
+    
+    OUTPUT=$(python3 ~/.local/bin/agy-rotate-helper.py)
+    if [[ $OUTPUT == *"ECHO_ERROR"* ]]; then
+        echo "⚠️ Xatolik: Hali API kalitlar qo'shilmagan."
+        echo "Iltimos, kalit qo'shish uchun 'agy-rotate --add' komandasini ishlating."
+        return
+    fi
+    
+    NEW_KEY=$(echo "$OUTPUT" | grep "ECHO_KEY:" | cut -d":" -f2-)
+    EMAIL=$(echo "$OUTPUT" | grep "ECHO_EMAIL:" | cut -d":" -f2-)
+    
+    export GEMINI_API_KEY="$NEW_KEY"
+    echo -e "\033[1;32m✅ Muvaffaqiyatli! \033[0m"
+    echo -e "Hozirgi faol akkaunt: \033[1;36m$EMAIL\033[0m"
+}
+
+
+# Antigravity: Auto-load active API key
+OUTPUT=$(python3 ~/.local/bin/agy-rotate-helper.py --current 2>/dev/null)
+if [[ $OUTPUT == *"ECHO_KEY:"* ]]; then
+    export GEMINI_API_KEY=$(echo "$OUTPUT" | grep "ECHO_KEY:" | cut -d":" -f2-)
+fi
+
+alias chats="agy-sessions"

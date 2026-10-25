@@ -1,0 +1,17 @@
+# Temporary and backup files
+*.bak
+*.tmp
+*.swp
+*~
+
+# Secrets and credentials
+.env
+.env.*
+.zshrc_secrets
+*.pem
+*.key
+
+# Caches and runtime
+__pycache__/
+*.pyc
+.cache/

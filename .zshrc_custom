@@ -1,13 +1,6 @@
 # Restore Antigravity & local bin path
 export PATH="/home/farrukh/.local/bin:$PATH"
 
-# NVM Lazy Initialization (Zero-delay startup)
-export NVM_DIR="$HOME/.nvm"
-nvm() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm "$@"; }
-node() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; node "$@"; }
-npm() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npm "$@"; }
-npx() { unset -f nvm node npm npx; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; npx "$@"; }
-
 # Bun initialization
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -129,4 +122,9 @@ alias 3='cd -3'
 # Quick Edit
 alias v='nvim'
 alias code.='code .'
+
+# Gaming with NVIDIA Prime Offload
+alias games="/home/farrukh/.local/bin/games"
+alias steam="prime-run steam"
+alias lutris="prime-run lutris"
 

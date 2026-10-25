@@ -35,3 +35,5 @@ done
 if [ -f ~/.bashrc_custom ]; then
     source ~/.bashrc_custom
 fi
+alias chats='agy-sessions'
+source /usr/share/nvm/init-nvm.sh
