@@ -1,155 +1,94 @@
+/* =============================================================================
+ * SWAYNC FLOATING NOTIFICATIONS - MODERN GLASS & NEON ACCENT
+ * ============================================================================= */
+
 @import '../../colors.css';
 
-/* === Derived dynamic colors === */
-@define-color base alpha(@surface, 0.8);                      /* translucent blurred base */
-@define-color surface_custom alpha(@surface_container_high,0.8);
-@define-color hovercolor alpha(@surface_container_high,0.8);
-@define-color activecolor @primary_container;
-
-@define-color buttoncolor alpha(@inverse_primary,0.3);
-@define-color hoverbutton alpha(@inverse_primary,0.5);
-@define-color activebutton @inverse_primary;
-
-@define-color bordercolor @primary;
-@define-color fontcolor @on_surface;
-@define-color text @on_surface;
-
-
 * {
-  font-size: 1rem;
-  font-weight: 900;
-  all: unset;
-  font-family: "Fira Sans Semibold", "Font Awesome 7 Free", "Font Awesome 7 Brands", "Font Awesome 6 Free", "Font Awesome 6 Brands", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  transition: 200ms;
+  font-family: "JetBrainsMono Nerd Font", "Fira Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: @on_surface;
+  transition: all 200ms ease;
 }
 
-.widget-mpris {
-  all: unset;
+.floating-notifications.background {
+  background: transparent;
 }
 
+.floating-notifications.background .notification-row {
+  outline: none;
+  background: transparent;
+}
 
+.floating-notifications.background .notification-row .notification-background {
+  padding: 6px 14px;
+}
 
 .floating-notifications.background .notification-row .notification-background .notification {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 55% -80%, alpha(@primary, 1), alpha(black,0.6)) padding-box, linear-gradient(transparent, alpha(white, 0.5)) padding-box;
-    border: 1px solid @on_surface;
-    opacity:1.0;
-    margin:10px;
-    margin-right:18px;
-    box-shadow: 1 1 5 1px @shadow;
+  background: rgba(17, 19, 24, 0.85);
+  border: 1px solid alpha(@primary, 0.35);
+  border-radius: 16px;
+  margin: 6px 0;
+  padding: 10px 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 1px 1px alpha(@primary, 0.2);
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical {
-    background-color: @surface;
-    border-radius: 12px;
-    background: radial-gradient(circle at 55% -80%, alpha(@primary, 1), alpha(black,0.6)) padding-box, linear-gradient(transparent, alpha(red, 0.5)) padding-box;
-    border: 1px solid @on_surface;
-    opacity:1.0;
-    margin:10px;
-    margin-right:18px;
-    box-shadow: 1 1 5 1px @shadow;
+  border: 1px solid @error;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 12px alpha(@error, 0.45);
 }
 
-/*This is the margin for the floating notifications on desktop only!*/
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content {
-  margin: 0rem;
+.floating-notifications.background .notification-row .notification-background .notification .summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: @on_surface;
+  padding: 2px 4px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > * {
-  min-height: 1.5em;
+.floating-notifications.background .notification-row .notification-background .notification .body {
+  font-size: 12px;
+  font-weight: 500;
+  color: alpha(@on_surface, 0.85);
+  padding: 2px 4px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action {
-  border-radius: 0.5rem;
-  background-color: alpha(@crust, 0.95);
-  margin: 0.4rem;
-  border: 1px solid transparent;
+.floating-notifications.background .notification-row .notification-background .close-button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid alpha(@on_surface, 0.1);
+  border-radius: 50%;
+  color: @on_surface;
+  margin: 2px 4px;
+  padding: 3px;
+  min-width: 22px;
+  min-height: 22px;
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:hover {
-  background-color: @hover;
-  border: 1px solid @primary;
+.floating-notifications.background .notification-row .notification-background .close-button:hover {
+  background: alpha(@error, 0.3);
+  border-color: @error;
+  color: @error;
+  box-shadow: 0 0 8px alpha(@error, 0.4);
 }
 
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .notification
-  > *:last-child
-  > *
-  .notification-action:active {
+/* Actions on floating notification */
+.floating-notifications.background .notification-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid alpha(@primary, 0.25);
+  border-radius: 10px;
+  padding: 6px 12px;
+  margin: 4px;
+  color: @on_surface;
+}
+
+.floating-notifications.background .notification-action:hover {
+  background: alpha(@primary, 0.2);
+  border-color: @primary;
+  color: @primary;
+}
+
+.floating-notifications.background progress,
+.notification progress {
   background-color: @primary;
-  color: @text;
-}
-
-
-.summary {
-  font-weight: 800;
-  font-size: 1.15rem;
-  padding: 5px 15px;
-}
-
-.body {
-  padding: 5px 15px;
-  font-size: 0.8rem;
-}
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button {
-  background: transparent;
-  border-radius: 7px;
-  color: @text;
-  background-color: alpha(#fff, 0.5);
-  margin: 0px;
-  padding: 2px;
-}
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button:hover {
-  background-color: @primary;
-  border-radius: 12px;
-}
-
-.floating-notifications.background
-  .notification-row
-  .notification-background
-  .close-button:active {
-  background-color: @primary;
-  color: @text;
-}
-
-.notification.critical progress {
-  background-color: @primary;
-}
-
-.notification.low progress,
-.notification.normal progress {
-  background-color: @primary;
+  border-radius: 6px;
 }
