@@ -1,47 +1,106 @@
+/* ==============================================================================
+ * WLOGOUT MODERN GLASSMORPHISM STYLESHEET
+ * Integrates seamlessly with Matugen, Hyprland, and Waybar
+ * ============================================================================== */
+
+@import "colors.css";
+
+/* Fallback definitions in case dynamic colors are not yet initialized */
+@define-color surface #111318;
+@define-color surface_container #1e1f25;
+@define-color surface_container_high #282a2f;
+@define-color on_surface #e2e2e9;
+@define-color primary #adc6ff;
+@define-color on_primary #102f60;
+@define-color primary_container #2b4678;
+
 * {
-	background-image: none;
-	box-shadow: none;
+    background-image: none;
+    box-shadow: none;
 }
 
+/* Fullscreen frosted glass backdrop */
 window {
-	background-color: rgba(12, 12, 12, 0.9);
+    background-color: alpha(@surface, 0.75);
 }
 
+/* Centered container with balanced screen margins */
+grid {
+    margin: 140px 300px;
+}
+
+/* Base button styling: Rounded glass cards */
 button {
     border-radius: 20px;
-    border-color: black;
-	text-decoration-color: #FFFFFF;
-    color: #FFFFFF;
-	background-color: #1E1E2E;
-	border-style: solid;
-	border-width: 1px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 25%;
-    margin: 10px;
+    border: 1px solid alpha(@primary, 0.25);
+    background-color: alpha(@surface_container, 0.65);
+    color: @on_surface;
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px;
+    background-repeat: no-repeat;
+    background-position: center 36%;
+    background-size: 64px 64px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button:focus, button:active, button:hover {
-	background-color: #cba6f7;
-    color: #11111B;
-	outline-style: none;
+/* Neon glow hover & focus state */
+button:focus,
+button:active,
+button:hover {
+    background-color: alpha(@primary_container, 0.75);
+    border: 1.5px solid @primary;
+    box-shadow: 0 0 25px alpha(@primary, 0.45), inset 0 0 15px alpha(@primary, 0.15);
+    color: @primary;
+    outline-style: none;
 }
 
+/* Specific button icons: High-DPI crisp SVG vectors */
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-image: image(url("icons/lock.svg"));
 }
+#lock:focus,
+#lock:hover {
+    background-image: image(url("icons/lock-hover.svg"));
+}
+
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+    background-image: image(url("icons/logout.svg"));
 }
+#logout:focus,
+#logout:hover {
+    background-image: image(url("icons/logout-hover.svg"));
+}
+
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-image: image(url("icons/suspend.svg"));
 }
+#suspend:focus,
+#suspend:hover {
+    background-image: image(url("icons/suspend-hover.svg"));
+}
+
 #hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+    background-image: image(url("icons/hibernate.svg"));
 }
-#shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+#hibernate:focus,
+#hibernate:hover {
+    background-image: image(url("icons/hibernate-hover.svg"));
 }
+
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-image: image(url("icons/reboot.svg"));
+}
+#reboot:focus,
+#reboot:hover {
+    background-image: image(url("icons/reboot-hover.svg"));
+}
+
+#shutdown {
+    background-image: image(url("icons/shutdown.svg"));
+}
+#shutdown:focus,
+#shutdown:hover {
+    background-image: image(url("icons/shutdown-hover.svg"));
 }
