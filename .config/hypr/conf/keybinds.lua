@@ -12,7 +12,7 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("pkill -x waypaper || waypaper"))
 hl.bind(mainMod .. "+SHIFT+W", hl.dsp.exec_cmd("waypaper --random"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("nautilus"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("cosmic-files"))
 
 -- Launcher Toggle (Press once to open, press again to close)
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
@@ -25,6 +25,9 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Notification Center Toggle
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
+-- Night Light (Ko'zni himoyalash / Tungi rejim) Toggle
+hl.bind(mainMod .. "+SHIFT+N", hl.dsp.exec_cmd("~/.config/hypr/scripts/nightlight.sh"))
 
 -- 2. Window Management (Focus, Move, Resize)
 hl.bind(mainMod .. " + Q", hl.dsp.window.kill())
@@ -90,8 +93,14 @@ local NOTIFY = os.getenv("HOME") .. "/.config/hypr/scripts/notify"
 hl.bind("XF86AudioRaiseVolume",  hl.dsp.exec_cmd(NOTIFY .. "/volume.sh up"),     { locked = true })
 hl.bind("XF86AudioLowerVolume",  hl.dsp.exec_cmd(NOTIFY .. "/volume.sh down"),   { locked = true })
 hl.bind("XF86AudioMute",         hl.dsp.exec_cmd(NOTIFY .. "/volume.sh mute"),   { locked = true })
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh up"), { locked = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh down"), { locked = true })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh up"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh down"), { locked = true, repeating = true })
+hl.bind("XF86KbdBrightnessUp",   hl.dsp.exec_cmd("asusctl leds next"),              { locked = true })
+hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd("asusctl leds prev"),              { locked = true })
+
+-- Fallback Brightness Shortcuts (SUPER + F7 / F8)
+hl.bind(mainMod .. " + F7", hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh down"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F8", hl.dsp.exec_cmd(NOTIFY .. "/brightness.sh up"),   { locked = true, repeating = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })

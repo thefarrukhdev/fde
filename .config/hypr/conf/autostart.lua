@@ -20,6 +20,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("nm-applet --indicator")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hypridle")
+    hl.exec_cmd("hyprsunset")
     
     -- Notification daemons (battery + media track changes)
     hl.exec_cmd("systemctl --user restart battery-notify.service")

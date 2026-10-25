@@ -1,21 +1,74 @@
 ---@module 'hl'
 
--- Fallback to standard config string mapping since hl.layer_rule API is ambiguous
-hl.config({
-    layerrule = {
-        "blur, waybar",
-        "ignorezero, waybar",
-        "blur, wofi",
-        "ignorealpha 0.2, wofi",
-        "blur, rofi",
-        "ignorealpha 0.2, rofi",
-        "blur, notifications",
-        "ignorealpha 0.2, notifications",
-        "blur, mako",
-        "ignorealpha 0.2, mako",
-        "blur, swaync-control-center",
-        "ignorealpha 0.2, swaync-control-center"
-    }
+-- ==============================================
+-- LAYER RULES (Frosted Glass & Animations)
+-- ==============================================
+
+-- 1. Status Bar & Panels
+hl.layer_rule({
+    name = "waybar",
+    match = { namespace = "waybar" },
+    blur = true,
+    ignore_alpha = 0.1,
+})
+
+-- 2. Power & Session Menus
+hl.layer_rule({
+    name = "logout_dialog",
+    match = { namespace = "logout_dialog" },
+    blur = true,
+    ignore_alpha = 0.1,
+    animation = "fade",
+})
+hl.layer_rule({
+    name = "wlogout",
+    match = { namespace = "wlogout" },
+    blur = true,
+    ignore_alpha = 0.1,
+    animation = "fade",
+})
+
+-- 3. Notification Center & Popups (SwayNC / Mako / Dunst)
+hl.layer_rule({
+    name = "swaync_control_center",
+    match = { namespace = "swaync-control-center" },
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "slide right",
+})
+hl.layer_rule({
+    name = "swaync_notification_window",
+    match = { namespace = "swaync-notification-window" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+hl.layer_rule({
+    name = "notifications",
+    match = { namespace = "notifications" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+hl.layer_rule({
+    name = "mako",
+    match = { namespace = "mako" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+
+-- 4. App Launchers & Pickers (Rofi / Wofi)
+hl.layer_rule({
+    name = "rofi",
+    match = { namespace = "rofi" },
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "popin 80%",
+})
+hl.layer_rule({
+    name = "wofi",
+    match = { namespace = "wofi" },
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "popin 80%",
 })
 
 -- ==============================================

@@ -35,11 +35,13 @@ hl.config({
         },
         blur = {
             enabled = true,
-            size = 5,
+            size = 6,
             passes = 2,
             new_optimizations = true,
             ignore_opacity = true,
-            xray = true,
+            xray = false,
+            popups = true,
+            popups_ignorealpha = 0.2,
             vibrancy = 0.1696,
         },
     },
@@ -66,7 +68,7 @@ hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "md3_decel"
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "md3_decel", style = "popin 60%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3, bezier = "md3_accel", style = "popin 60%" })
 hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "borderangle", enabled = true, speed = 100, bezier = "linear", style = "loop" })
+hl.animation({ leaf = "borderangle", enabled = false, speed = 100, bezier = "linear" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "md3_decel" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = 3, bezier = "menu_decel", style = "slide" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.6, bezier = "menu_accel" })
