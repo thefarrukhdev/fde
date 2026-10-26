@@ -164,17 +164,20 @@
   },
 
   "battery": {
+    "bat": "BAT1",
+    "adapter": "ACAD",
+    "interval": 2,
     "states": {
       "warning": 30,
       "critical": 15
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
-    "format-plugged": "󰂄 {capacity}%",
-    "tooltip-format": "{icon}  Batareya\n───────────────────────\n• Zaryad:       {capacity}%\n• Qolgan vaqt:  {time}",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
+    "tooltip-format": "󰁹  Batareya\n───────────────────────\n• Zaryad:       {capacity}%\n• Qolgan vaqt:  {time}",
     "tooltip-format-charging": "󰂄  Quvvatlanmoqda\n───────────────────────\n• Zaryad:       {capacity}%\n• To'lish vaqti: {time}",
-    "tooltip-format-plugged": "󰚥  Tarmoqqa Ulangan\n───────────────────────\n• Zaryad:       {capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    "tooltip-format-plugged": "󰚥  Tarmoqqa Ulangan\n───────────────────────\n• Zaryad:       {capacity}%"
   },
 
   "custom/power": {
